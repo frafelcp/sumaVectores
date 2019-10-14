@@ -3,55 +3,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-//Realice un Algoritmo que dado N valores, Calcule la suma de los N valores
-
-package vec;
+package sumar_CienNumeros;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
+//Realizar un algoritmo que lea una secuencia de 100 números como máximo y 
+//los almacene en una estructura de tipo array. Posteriormente, se debe calcular 
+//la suma de los N primeros números almacenados. El dato N es un número 
+//introducido por un dispositivo de entrada.
 
 /**
  *
  * @author Felix Castro
  */
-public class vectSuma {
+public class sumCieNumeros {
     public static void main(String[] args) {
-        //ingresamos por consola
-        Scanner entrada = new  Scanner(System.in);
+        //leer por teclado y consola
+        Scanner entrada = new Scanner(System.in);
         
-        //variables
-        int [] vector;
-        int elem;
+        //definimos variables y vector
+        int [] numeros;
+        int contar = 0;
+        int num;
         int suma = 0;
         
-        //el numero de numeros a sumar
-        System.out.println("Ingrese cuantos numeros va sumar");
-        elem = entrada.nextInt();
+        //damos tamaño al vector
+        numeros = new int[100];
         
-        //vector que guardar los numeros
-        vector = new int[elem];
+        //llenamos el vector
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = contar++;
+        }        
         
-        System.out.println("------------------------------------");
+        //ingresamo un numero
+        System.out.println("Ingres un numero");
+        num = entrada.nextInt();
         
-        //llenamos el vector y sumamos
-        for (int i = 0; i < vector.length; i++) {
-            System.out.println((i+1)+".Ingrese un numero");
-            vector[i] = entrada.nextInt();
-            suma = suma + vector[i];
+        //sumamos dependiendo del numero ingresado
+        for (int i = 0; i < num; i++) {
+            suma = suma + numeros[i];
         }
         
-        System.out.println("------------------------------------");
+        System.out.println("-------------------------------------");
         
-        //mostramos el vector
-        System.out.println("Numeros ingresados");
-        for (int i = 0; i < vector.length; i++) {
-            System.out.println(vector[i]);
+        //imprimimos vector
+        System.out.println("El vector completo es: ");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println(numeros[i]+" ");
         }
         
-        System.out.println("------------------------------------");
+        System.out.println("-------------------------------------");
         
-        //mostramos la suma de elemntos del vector
-        System.out.println("El  total de la suma de los numeros ingresados:"+suma);
+        //mostramos la suma
+        System.out.println(suma);
     }
 }
